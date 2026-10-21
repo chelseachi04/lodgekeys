@@ -1,0 +1,64 @@
+/* ===================================
+   Hotel Owner CTA
+   =================================== */
+
+.owner-cta {
+  background-color: var(--color-forest);
+  padding: var(--space-4xl) 0;
+}
+
+.owner-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+}
+
+.owner-cta__eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-md);
+}
+
+.owner-cta__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 500;
+  color: var(--color-white);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.owner-cta__description {
+  font-size: 15px;
+  font-weight: 350;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}
+
+.owner-cta__btn {
+  padding: 14px 28px;
+  font-size: 13.5px;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .owner-cta {
+    padding: var(--space-3xl) 0;
+  }
+
+  .owner-cta__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .owner-cta__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

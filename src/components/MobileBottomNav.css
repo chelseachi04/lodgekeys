@@ -1,0 +1,152 @@
+/* ===================================
+   Mobile Fixed Bottom Navigation Bar
+   (Visible only on viewports < 768px)
+   =================================== */
+
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(226, 220, 206, 0.85);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  padding: 6px 4px;
+  padding-bottom: env(safe-area-inset-bottom, 12px);
+  transition: transform 0.25s ease, background-color 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-bottom-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mobile-bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding: 4px 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  font-family: var(--font-sans);
+  text-decoration: none;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease;
+  position: relative;
+}
+
+/* Micro-interaction: Smooth scale bounce on tap */
+.mobile-bottom-nav__item:active {
+  transform: scale(0.92);
+}
+
+.mobile-bottom-nav__icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 2px;
+  transition: transform 0.18s ease;
+}
+
+.mobile-bottom-nav__label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  transition: color 0.15s ease, font-weight 0.15s ease;
+}
+
+/* Active State: Deep Forest Green with Tiny Dot Indicator */
+.mobile-bottom-nav__item--active {
+  color: #132a1e;
+}
+
+.mobile-bottom-nav__item--active .mobile-bottom-nav__label {
+  color: #132a1e;
+  font-weight: 700;
+}
+
+.mobile-bottom-nav__item--active .mobile-bottom-nav__icon-wrap {
+  transform: translateY(-1px);
+}
+
+.mobile-bottom-nav__dot {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-forest, #1b3b2b);
+  box-shadow: 0 0 6px rgba(27, 59, 43, 0.6);
+  animation: mobileNavDotPulse 0.3s ease-out;
+}
+
+@keyframes mobileNavDotPulse {
+  0% {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) scale(1.3);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Badge for Admin Applications */
+.mobile-bottom-nav__badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 9.5px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  line-height: 16px;
+  padding: 0 4px;
+  border-radius: var(--radius-full, 9999px);
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(239, 68, 68, 0.4);
+  pointer-events: none;
+}
+
+/* Hide on viewports >= 768px */
+@media (min-width: 768px) {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}
+
+/* Dedicated Print Hiding */
+@media print {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}

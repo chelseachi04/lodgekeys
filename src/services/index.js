@@ -1,0 +1,11 @@
+export { STORAGE_KEYS } from './storageKeys';
+export { authService } from './authService';
+export { userService } from './userService';
+export { hotelService } from './hotelService';
+export { roomService, SEED_ROOMS } from './roomService';
+export { bookingService, generateBookingReference, calculateStayPricing } from './bookingService';
+export { applicationService } from './applicationService';
+export { paymentService, DEFAULT_PLATFORM_SETTINGS } from './paymentService';
+export { notificationService } from './notificationService';
+export { emailService } from './emailService';
+export { supabase, isSupabaseConfigured } from '../lib/supabaseClient';

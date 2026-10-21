@@ -1,0 +1,203 @@
+/* ===================================
+   Hotel Card
+   =================================== */
+
+.hotel-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-light-border);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Image */
+.hotel-card__image-wrapper {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.hotel-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.hotel-card:hover .hotel-card__image {
+  transform: scale(1.04);
+}
+
+.hotel-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(4px);
+}
+
+.hotel-card__fav {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-charcoal);
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+}
+
+.hotel-card__fav:hover {
+  background-color: var(--color-white);
+  transform: scale(1.08);
+}
+
+.hotel-card__fav--active {
+  color: #E06058;
+}
+
+/* Content */
+.hotel-card__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hotel-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.hotel-card__location {
+  font-size: 11.5px;
+  font-weight: 450;
+  color: var(--color-muted);
+  letter-spacing: 0.2px;
+}
+
+.hotel-card__category {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-forest);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background-color: rgba(36, 70, 56, 0.06);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.hotel-card__name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.hotel-card__description {
+  font-size: 13px;
+  font-weight: 350;
+  color: var(--color-warm-gray);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Amenities */
+.hotel-card__amenities {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-light-border);
+}
+
+.hotel-card__amenity {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-sm);
+  color: var(--color-warm-gray);
+}
+
+/* Footer */
+.hotel-card__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.hotel-card__pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hotel-card__price-label {
+  font-size: 10px;
+  font-weight: 450;
+  color: var(--color-muted);
+  letter-spacing: 0.2px;
+}
+
+.hotel-card__price {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.hotel-card__price-unit {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.hotel-card__view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--color-forest);
+  padding: 8px 16px;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-full);
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.hotel-card__view-btn:hover {
+  border-color: var(--color-forest);
+  background-color: rgba(36, 70, 56, 0.04);
+}

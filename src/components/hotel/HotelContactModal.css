@@ -1,0 +1,223 @@
+/* Hotel Contact Modal */
+.hotel-contact-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  background-color: rgba(18, 28, 20, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFade 0.22s ease-out;
+}
+
+@keyframes modalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hotel-contact-card {
+  width: 100%;
+  max-width: 520px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--color-white);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px 32px;
+  box-shadow: 0 16px 48px rgba(10, 20, 14, 0.28);
+  position: relative;
+  animation: modalCardScale 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalCardScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.hotel-contact-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-light-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-warm-gray);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.hotel-contact-close:hover {
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  border-color: var(--color-charcoal);
+  transform: rotate(90deg);
+}
+
+.hotel-contact-header {
+  margin-bottom: 20px;
+}
+
+.hotel-contact-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin: 6px 0 8px;
+}
+
+.hotel-contact-desc {
+  font-size: 13.5px;
+  color: var(--color-warm-gray);
+  line-height: 1.55;
+}
+
+.hotel-contact-info-strip {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.hotel-contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--color-charcoal);
+}
+
+.hotel-contact-info-item svg {
+  color: var(--color-forest);
+  flex-shrink: 0;
+}
+
+.hotel-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hotel-contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.hotel-contact-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hotel-contact-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+.req {
+  color: #c94a29;
+}
+
+.hotel-contact-input,
+.hotel-contact-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--color-charcoal);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.hotel-contact-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.hotel-contact-input:focus,
+.hotel-contact-textarea:focus {
+  border-color: var(--color-forest);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(36, 70, 56, 0.12);
+}
+
+.hotel-contact-input--error {
+  border-color: #c94a29 !important;
+  background-color: #fff9f8 !important;
+}
+
+.hotel-contact-err {
+  font-size: 11.5px;
+  color: #c94a29;
+}
+
+.hotel-contact-submit {
+  width: 100%;
+  padding: 13px;
+  font-size: 13.5px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+/* Success */
+.hotel-contact-success {
+  text-align: center;
+  padding: 24px 10px 10px;
+}
+
+.hotel-contact-success__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.hotel-contact-success h3 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--color-charcoal);
+  margin-bottom: 8px;
+}
+
+.hotel-contact-success p {
+  font-size: 14px;
+  color: var(--color-warm-gray);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 580px) {
+  .hotel-contact-card {
+    padding: 28px 20px;
+  }
+  .hotel-contact-row {
+    grid-template-columns: 1fr;
+  }
+}

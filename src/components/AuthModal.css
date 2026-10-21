@@ -1,0 +1,501 @@
+/* ===================================
+   Auth Modal (Popup Overlay)
+   =================================== */
+
+.auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  background-color: rgba(18, 28, 20, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: authOverlayFade 0.22s ease-out;
+}
+
+@keyframes authOverlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.auth-modal-card {
+  width: 100%;
+  max-width: 460px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--color-white);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px 32px;
+  box-shadow: 0 16px 48px rgba(10, 20, 14, 0.28);
+  position: relative;
+  animation: authCardScale 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes authCardScale {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Close Button */
+.auth-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-light-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-warm-gray);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.auth-modal-close:hover {
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  border-color: var(--color-charcoal);
+  transform: rotate(90deg);
+}
+
+/* Header */
+.auth-modal-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.auth-modal-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.auth-modal-brand__icon {
+  color: var(--color-forest);
+}
+
+.auth-modal-brand__name {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  letter-spacing: -0.3px;
+}
+
+.auth-modal-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  line-height: 1.2;
+  margin: 0 0 6px;
+}
+
+.auth-modal-subtitle {
+  font-size: 13px;
+  color: var(--color-warm-gray);
+  line-height: 1.5;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* Tabs */
+.auth-modal-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--color-bg);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  border: 1px solid var(--color-light-border);
+}
+
+.auth-modal-tab {
+  padding: 9px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-warm-gray);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.auth-modal-tab--active {
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Social Login */
+.auth-modal-social {
+  margin-bottom: 16px;
+}
+
+.auth-modal-social-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 18px;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  color: var(--color-charcoal);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.auth-modal-social-btn:hover {
+  background-color: var(--color-bg);
+  border-color: var(--color-charcoal);
+}
+
+.auth-modal-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 16px 0;
+  color: var(--color-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.auth-modal-divider::before,
+.auth-modal-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-light-border);
+}
+
+.auth-modal-divider span {
+  padding: 0 10px;
+}
+
+/* Error Banner */
+.auth-modal-error {
+  background-color: #fdeeed;
+  border: 1px solid #f5c2c7;
+  color: #842029;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  margin-bottom: 16px;
+}
+
+/* Form Fields */
+.auth-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.auth-modal-field-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auth-modal-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+.auth-modal-forgot {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--color-forest);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.auth-modal-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-modal-input-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--color-muted);
+  pointer-events: none;
+}
+
+.auth-modal-input {
+  width: 100%;
+  padding: 10px 40px 10px 38px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--color-charcoal);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.auth-modal-input:focus {
+  border-color: var(--color-forest);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(36, 70, 56, 0.12);
+}
+
+.auth-modal-eye {
+  position: absolute;
+  right: 12px;
+  color: var(--color-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.auth-modal-eye:hover {
+  color: var(--color-charcoal);
+}
+
+/* Remember me */
+.auth-modal-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auth-modal-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--color-warm-gray);
+  cursor: pointer;
+}
+
+.auth-modal-checkbox {
+  accent-color: var(--color-forest);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* Submit Button */
+.auth-modal-submit {
+  padding: 12px 24px;
+  font-size: 13.5px;
+  font-weight: 500;
+  width: 100%;
+  justify-content: center;
+  margin-top: 4px;
+  box-shadow: 0 2px 8px rgba(36, 70, 56, 0.25);
+}
+
+.auth-modal-submit:hover {
+  box-shadow: 0 4px 14px rgba(36, 70, 56, 0.35);
+}
+
+/* Switch Mode Link */
+.auth-modal-toggle {
+  text-align: center;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-light-border);
+  font-size: 12.5px;
+  color: var(--color-warm-gray);
+}
+
+.auth-modal-switch-btn {
+  font-weight: 600;
+  color: var(--color-forest);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0 2px;
+}
+
+.auth-modal-back-btn {
+  background: none;
+  border: none;
+  color: var(--color-warm-gray);
+  font-size: 12.5px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 8px;
+  padding: 6px;
+}
+
+.auth-modal-back-btn:hover {
+  color: var(--color-forest);
+}
+
+/* Success State */
+.auth-modal-success {
+  text-align: center;
+  padding: 24px 12px;
+  animation: authOverlayFade 0.25s ease;
+}
+
+.auth-modal-success__icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+}
+
+.auth-modal-success h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--color-charcoal);
+  margin-bottom: 6px;
+}
+
+.auth-modal-success p {
+  font-size: 13.5px;
+  color: var(--color-warm-gray);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* Security Footer Badge */
+.auth-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--color-muted);
+  margin-top: 18px;
+}
+
+/* Role Badge in success view */
+.auth-modal-role-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(35, 82, 48, 0.1);
+  color: #235230;
+  border: 1px solid rgba(35, 82, 48, 0.2);
+}
+
+/* Demo Login Pills */
+.auth-modal-demo {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: #f9fafb;
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+}
+
+.auth-modal-demo__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 10px;
+}
+
+.auth-modal-demo__pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.auth-modal-demo__pill {
+  flex: 1;
+  min-width: 90px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.18s ease;
+  text-align: center;
+}
+
+.auth-modal-demo__pill:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.auth-modal-demo__pill--guest {
+  background: rgba(26, 95, 58, 0.08);
+  color: #1a5f3a;
+  border-color: rgba(26, 95, 58, 0.2);
+}
+.auth-modal-demo__pill--guest:hover:not(:disabled) {
+  background: rgba(26, 95, 58, 0.15);
+  border-color: rgba(26, 95, 58, 0.4);
+}
+
+.auth-modal-demo__pill--manager {
+  background: rgba(180, 120, 20, 0.08);
+  color: #7a5200;
+  border-color: rgba(180, 120, 20, 0.2);
+}
+.auth-modal-demo__pill--manager:hover:not(:disabled) {
+  background: rgba(180, 120, 20, 0.15);
+  border-color: rgba(180, 120, 20, 0.4);
+}
+
+.auth-modal-demo__pill--admin {
+  background: rgba(90, 40, 140, 0.08);
+  color: #5a2068;
+  border-color: rgba(90, 40, 140, 0.2);
+}
+.auth-modal-demo__pill--admin:hover:not(:disabled) {
+  background: rgba(90, 40, 140, 0.15);
+  border-color: rgba(90, 40, 140, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .auth-modal-card {
+    padding: 28px 20px 24px;
+  }
+}

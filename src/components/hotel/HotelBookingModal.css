@@ -1,0 +1,259 @@
+/* Hotel Booking Modal */
+.hotel-booking-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  background-color: rgba(18, 28, 20, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFade 0.22s ease-out;
+}
+
+.hotel-booking-card {
+  width: 100%;
+  max-width: 540px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--color-white);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  box-shadow: 0 16px 48px rgba(10, 20, 14, 0.28);
+  position: relative;
+  animation: modalCardScale 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hotel-booking-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-light-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-warm-gray);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.hotel-booking-close:hover {
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  border-color: var(--color-charcoal);
+  transform: rotate(90deg);
+}
+
+.hotel-booking-header {
+  margin-bottom: 20px;
+}
+
+.hotel-booking-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin: 6px 0 6px;
+}
+
+.hotel-booking-sub {
+  font-size: 13.5px;
+  color: var(--color-warm-gray);
+}
+
+.booking-dates-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.booking-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.booking-input,
+.booking-select {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--color-charcoal);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.booking-input:focus,
+.booking-select:focus {
+  border-color: var(--color-forest);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(36, 70, 56, 0.12);
+}
+
+.booking-price-banner {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.price-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-item span {
+  font-size: 11px;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.price-item strong {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--color-charcoal);
+}
+
+.price-item.total strong {
+  color: var(--color-forest);
+  font-size: 20px;
+}
+
+.price-divider {
+  width: 1px;
+  height: 28px;
+  background-color: var(--color-light-border);
+}
+
+.booking-error {
+  background-color: #fdeeed;
+  border: 1px solid #f5c2c7;
+  color: #842029;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  margin-bottom: 14px;
+}
+
+.booking-guest-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-submit-btn {
+  width: 100%;
+  padding: 13px;
+  font-size: 14px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.booking-security-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--color-muted);
+  margin-top: 14px;
+}
+
+/* Success View */
+.hotel-booking-success {
+  text-align: center;
+  padding: 24px 10px 10px;
+}
+
+.hotel-booking-success__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.hotel-booking-success h3 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--color-charcoal);
+  margin-bottom: 8px;
+}
+
+.hotel-booking-success p {
+  font-size: 14px;
+  color: var(--color-warm-gray);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.hotel-booking-summary-box {
+  background: var(--color-bg);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: var(--color-warm-gray);
+}
+
+.summary-row strong {
+  color: var(--color-charcoal);
+}
+
+@media (max-width: 580px) {
+  .hotel-booking-card {
+    padding: 28px 20px;
+  }
+  .booking-dates-row {
+    grid-template-columns: 1fr;
+  }
+  .booking-price-banner {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .price-divider {
+    display: none;
+  }
+}

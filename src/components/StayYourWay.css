@@ -1,0 +1,155 @@
+/* ===================================
+   Stay Your Way
+   =================================== */
+
+.stay-way {
+  padding: var(--space-5xl) 0 var(--space-4xl);
+}
+
+.stay-way__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.stay-way__header .eyebrow {
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+/* Grid */
+.stay-way__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+/* Tile */
+.stay-way__tile {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.stay-way__tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(10, 20, 14, 0.22);
+}
+
+.stay-way__tile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.stay-way__tile:hover .stay-way__tile-image {
+  transform: scale(1.08);
+}
+
+.stay-way__tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 15, 10, 0.75) 0%,
+    rgba(10, 15, 10, 0.2) 50%,
+    transparent 100%
+  );
+  transition: background var(--transition-base);
+}
+
+.stay-way__tile:hover .stay-way__tile-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(10, 15, 10, 0.85) 0%,
+    rgba(10, 15, 10, 0.25) 55%,
+    rgba(10, 15, 10, 0.05) 100%
+  );
+}
+
+.stay-way__tile-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.stay-way__tile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.stay-way__tile-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.stay-way__tile-subtitle {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.stay-way__tile-arrow {
+  color: var(--color-white);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.stay-way__tile:hover .stay-way__tile-arrow {
+  background: var(--color-white);
+  color: var(--color-forest);
+  transform: translate(3px, -3px) scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 900px) {
+  .stay-way__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stay-way {
+    padding: var(--space-3xl) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .stay-way__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .stay-way__tile-title,
+  .stay-way__tile-subtitle {
+    font-size: 18px;
+  }
+
+  .stay-way__tile-content {
+    padding: 16px;
+  }
+}
